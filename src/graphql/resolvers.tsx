@@ -37,7 +37,7 @@ const resolvers: Resolvers = {
       console.log("getcontactslist data: ", data)
 
       if(limit && offset){
-        console.log("yea")
+        console.log("test")
       }
       console.log(limit)
       console.log(offset)
