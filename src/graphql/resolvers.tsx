@@ -28,17 +28,12 @@ const resolvers: Resolvers = {
     },
 
     getContactsList: (_, { limit, offset, order_by, where }, { client }) => {
-      console.log("getContactsList")
       const data = client.readQuery({
         query: GET_CONTACTS,
       });
       
       const contacts = data.getContacts
-      console.log("getcontactslist data: ", data)
 
-      if(limit && offset){
-        console.log("test")
-      }
       console.log(limit)
       console.log(offset)
       console.log(order_by)

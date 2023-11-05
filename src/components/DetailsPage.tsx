@@ -1,9 +1,7 @@
 /** @jsxImportSource @emotion/react */
 "use client";
-import { useMutation } from "@apollo/client";
-import { CREATE_CONTACT } from "../graphql/mutations";
 import { css } from "@emotion/react";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 const darkBG = css({
   backgroundColor: "rgba(0, 0, 0, 0.2)",
@@ -91,39 +89,6 @@ const cancelBtn = css({
   },
 });
 
-const addBtn = css({
-  marginTop: "10px",
-  cursor: "pointer",
-  fontWeight: "500",
-  padding: "11px 28px",
-  borderRadius: "12px",
-  fontSize: "0.8rem",
-  border: "none",
-  color: "white",
-  background: "#4FD15A",
-  transition: "all 0.25s ease",
-  "&:hover": {
-    boxShadow: "none",
-    transform: "none",
-    background: "whitesmoke",
-  },
-});
-
-const inputCSS = css({
-  width: "70vw",
-  height: "30px",
-  border: "3px solid #4FD15A",
-  padding: "5px",
-  outline: "none",
-  borderRadius: "5px",
-});
-
-const labelCSS = css({
-  display: "inline-block",
-  marginBottom: "10px",
-  marginTop: "10px",
-  fontSize: "16px",
-});
 
 interface Contact {
   favorite: boolean;
@@ -141,10 +106,6 @@ export default function DetailsPage({
   setIsOpenDetails: Dispatch<SetStateAction<boolean>>;
   details: Contact;
 }) {
-  useEffect(() => {
-    console.log(details);
-    console.log(typeof details);
-  }, []);
 
   return (
     <main>
@@ -161,9 +122,9 @@ export default function DetailsPage({
                 {details.first_name} {details.last_name}
               </p>
               <h3>Phones</h3>
-              {details.phones.map((value) => {
+              {details.phones.map((value, key) => {
                 return(
-                  <p>{value.number}</p>
+                  <p key={key}>{value.number}</p>
                 )
               })}
             </div>
