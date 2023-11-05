@@ -44,10 +44,10 @@ const searchCSS = css({
 });
 
 const optionsContainer = css({
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  justifyContent: "space-between",
+  // display: "flex",
+  // flexDirection: "row",
+  // flexWrap: "wrap",
+  // justifyContent: "space-between",
 });
 
 const contactContainer = css({
